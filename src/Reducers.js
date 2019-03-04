@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { counterReducer } from './counter/Counter.reducer';
+
+import { charsReducer } from './chars/Chars.reducer';
+
 
 export const reducers = combineReducers({
-  counter: counterReducer
+  chars: charsReducer
 });
