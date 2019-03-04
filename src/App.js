@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { CharList } from './charList/CharList.component';
 import { CharDetails } from './charDetails/CharDetails.component';

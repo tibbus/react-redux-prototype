@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import { Link } from "react-router-dom";
 
 import { CharListSelector } from './CharList.selector';
@@ -10,19 +9,8 @@ class CharListComponent extends Component {
   onClickGetList = () => {
     const { dispatch } = this.props;
 
-    axios
-      .get('https://rickandmortyapi.com/api/character')
-      .then((response) => {
-        // handle success
-        console.log(response);
-        dispatch({
-          type: 'SET_CHARS',
-          payload: response.data.results
-        });
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
+      dispatch({
+        type: 'FETCH_CHARS_TRIGGER',
       });
   }
 

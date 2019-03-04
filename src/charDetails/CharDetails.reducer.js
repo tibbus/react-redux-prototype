@@ -3,12 +3,12 @@ const INITIAL_STATE = {
   active: null
 };
 
-export function CharDetailsReducer(state = INITIAL_STATE, action) {
+export function charDetailsReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'SET_ACTIVE_CHAR':
+    case 'FETCH_CHAR_DETAIL_SUCCESS':
       return {
-        ...state,
         loaded: {
+          ...state.loaded,
           [action.payload.id]: action.payload
         },
         active: action.payload
