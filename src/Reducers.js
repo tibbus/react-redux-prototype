@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { charsReducer } from './chars/Chars.reducer';
+import { CharListReducer } from './charList/CharList.reducer';
+import { CharDetailsReducer } from './charDetails/CharDetails.reducer';
 
 
 export const reducers = combineReducers({
-  chars: charsReducer
+  charList: CharListReducer,
+  charDetails: CharDetailsReducer
 });

@@ -1,1 +1,0 @@
-export const charsSelector = state => state.chars;

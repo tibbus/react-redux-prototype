@@ -1,0 +1,1 @@
+export const CharListSelector = state => state.charList;

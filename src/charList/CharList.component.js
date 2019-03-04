@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
-import { charsSelector } from './Chars.selector';
+import { CharListSelector } from './CharList.selector';
 
 
-class CharsComponent extends Component {
+class CharListComponent extends Component {
   onClickGetList = () => {
     const { dispatch } = this.props;
-    
+
     axios
       .get('https://rickandmortyapi.com/api/character')
       .then((response) => {
@@ -22,7 +23,7 @@ class CharsComponent extends Component {
       .catch(function (error) {
         // handle error
         console.log(error);
-      })
+      });
   }
 
   renderChars() {
@@ -30,8 +31,10 @@ class CharsComponent extends Component {
 
     return (
       chars.map(char => {
-        return(
-          <img src={char.image} alt={char.name} key={char.id} />
+        return (
+          <Link to={`/details/${char.id}`}>
+            <img src={char.image} alt={char.name} key={char.id} />
+          </Link>
         )
       })
     )
@@ -49,10 +52,10 @@ class CharsComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    chars: charsSelector(state)
+    chars: CharListSelector(state)
   }
 }
 
-export const Chars = connect(
+export const CharList = connect(
   mapStateToProps
-)(CharsComponent);
+)(CharListComponent);

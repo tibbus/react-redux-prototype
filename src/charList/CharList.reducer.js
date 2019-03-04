@@ -1,4 +1,4 @@
-export function charsReducer(state = [], action) {
+export function CharListReducer(state = [], action) {
   switch (action.type) {
     case 'SET_CHARS':
       return action.payload;

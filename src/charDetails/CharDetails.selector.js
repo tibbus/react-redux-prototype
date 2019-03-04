@@ -1,0 +1,1 @@
+export const ActiveCharSelector = state => state.charDetails.active;
