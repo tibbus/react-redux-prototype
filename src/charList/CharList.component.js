@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
-import { CharListSelector } from './CharList.selector';
-import { FETCH_CHARS_TRIGGER }  from './CharList.action';
-
+import { charListSelector } from './CharList.selector';
+import { FETCH_CHARS_TRIGGER } from './CharList.action';
+import styles from './CharList.module.css';
 
 class CharListComponent extends Component {
-  onClickGetList = () => {
+  componentWillMount() {
     const { dispatch } = this.props;
 
-      dispatch({
-        type: FETCH_CHARS_TRIGGER,
-      });
+    dispatch({
+      type: FETCH_CHARS_TRIGGER,
+    });
   }
 
   renderChars() {
@@ -22,7 +22,7 @@ class CharListComponent extends Component {
       chars.map(char => {
         return (
           <Link to={`/details/${char.id}`}>
-            <img src={char.image} alt={char.name} key={char.id} />
+            <img className={styles.image} src={char.image} alt={char.name} key={char.id} />
           </Link>
         )
       })
@@ -31,8 +31,7 @@ class CharListComponent extends Component {
 
   render() {
     return (
-      <div className="counter">
-        <button className="list-button" onClick={this.onClickGetList}>Get list</button>
+      <div className={styles.container}>
         {this.renderChars()}
       </div>
     );
@@ -41,7 +40,7 @@ class CharListComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    chars: CharListSelector(state)
+    chars: charListSelector(state)
   }
 }
 

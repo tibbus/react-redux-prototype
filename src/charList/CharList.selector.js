@@ -1,4 +1,4 @@
 /**
  * Characters List
  */
-export const CharListSelector = state => state.charList;
+export const charListSelector = state => state.charList;

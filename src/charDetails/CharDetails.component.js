@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
-import { activeCharSelector } from './CharDetails.selector';
+import { activeCharInfosSelector } from './CharDetails.selector';
 import { FETCH_CHAR_DETAIL_TRIGGER } from './CharDetails.action';
+import styles from './CharDetails.module.css';
 
 
 class CharDetailsComponent extends Component {
@@ -15,6 +17,16 @@ class CharDetailsComponent extends Component {
     })
   }
 
+  renderInfos = () => {
+    const { activeChar } = this.props;
+
+    return activeChar.infos.map(info => {
+      return (<li className={styles.infoWrapper}>
+        <span className={styles.property}>{info.name}</span><span>{info.value}</span>
+      </li>);
+    });
+  }
+
   render() {
     const { activeChar } = this.props;
 
@@ -23,9 +35,12 @@ class CharDetailsComponent extends Component {
     }
 
     return (
-      <div className="details">
-        <img src={activeChar.image} alt={activeChar.name}></img>
-        <span style={{ color: 'white' }}>hello details</span>
+      <div className={styles.container}>
+        <Link to="/" className={styles.backButton}>🡄 Back</Link>
+        <img src={activeChar.image} alt="none"></img>
+        <ul className={styles.list}>
+          {this.renderInfos()}
+        </ul>
       </div>
     );
   }
@@ -33,7 +48,7 @@ class CharDetailsComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeChar: activeCharSelector(state)
+    activeChar: activeCharInfosSelector(state)
   };
 };
 

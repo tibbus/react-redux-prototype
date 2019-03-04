@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.list {
+  color: white;
+}
+
+.property {
+  width: 80px;
+  display: inline-block;
+  text-align: left;
+}
+
+.infoWrapper {
+  list-style-type: none;
+  text-align: left;
+}
+
+.backButton {
+  color: white;
+  font-size: 50px;
+  margin-right: 30px;
+  /* static width is used to not push the picture to right on hover */
+  width: 150px;
+  text-decoration: none;
+}
+
+.backButton:hover {
+  font-weight: bold;
+  font-size: 55px;
+}

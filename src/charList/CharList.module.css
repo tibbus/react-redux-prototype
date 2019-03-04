@@ -1,0 +1,13 @@
+.container {
+  padding: 30px;
+}
+
+.image {
+  max-height: 27vh;
+  margin: 8px;
+  border: solid 10px #303a4e;
+}
+
+.image:hover {
+  border-color: white;
+}
