@@ -3,7 +3,10 @@ import { createStore } from 'redux'
 import { reducers } from './Reducers';
 
 
-export let store = createStore(reducers)
+export let store = createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 // You can use subscribe() to update the UI in response to state changes.
 // Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
