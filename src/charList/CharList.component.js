@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import { CharListSelector } from './CharList.selector';
+import { FETCH_CHARS_TRIGGER }  from './CharList.action';
 
 
 class CharListComponent extends Component {
@@ -10,7 +11,7 @@ class CharListComponent extends Component {
     const { dispatch } = this.props;
 
       dispatch({
-        type: 'FETCH_CHARS_TRIGGER',
+        type: FETCH_CHARS_TRIGGER,
       });
   }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { activeCharSelector } from './CharDetails.selector';
+import { FETCH_CHAR_DETAIL_TRIGGER } from './CharDetails.action';
 
 
 class CharDetailsComponent extends Component {
@@ -9,7 +10,7 @@ class CharDetailsComponent extends Component {
     const { match, dispatch } = this.props;
 
     dispatch({
-      type: 'FETCH_CHAR_DETAIL_TRIGGER',
+      type: FETCH_CHAR_DETAIL_TRIGGER,
       payload: match.params.charId
     })
   }

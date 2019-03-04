@@ -1,7 +1,7 @@
 import { call, all, fork } from 'redux-saga/effects';
 
-import { charListSagas } from './charList/CharList.saga';
-import { charDetailsSagas } from './charDetails/CharDetails.saga';
+import { charListSagas } from '../charList/CharList.saga';
+import { charDetailsSagas } from '../charDetails/CharDetails.saga';
 
 
 function* wrapFork(saga, ...args) {
@@ -18,6 +18,8 @@ export function* sagas() {
         synchronousFork(charDetailsSagas)
       ]);
     } catch (e) {
+      // All Sagas errors are handled here
+      // Each Saga can catch the error manually as well  Ex.. try{ ...} catch{...}
       console.log('General exception handler: ', e);
     }
   }

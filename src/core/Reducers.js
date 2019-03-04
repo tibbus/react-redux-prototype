@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { charListReducer } from './charList/CharList.reducer';
-import { charDetailsReducer } from './charDetails/CharDetails.reducer';
+import { charListReducer } from '../charList/CharList.reducer';
+import { charDetailsReducer } from '../charDetails/CharDetails.reducer';
 
 
 export const reducers = combineReducers({
