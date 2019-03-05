@@ -21,9 +21,11 @@ class CharDetailsComponent extends Component {
     const { activeChar } = this.props;
 
     return activeChar.infos.map(info => {
-      return (<li className={styles.infoWrapper}>
-        <span className={styles.property}>{info.name}</span><span>{info.value}</span>
-      </li>);
+      return (
+        <li className={styles.infoWrapper}>
+          <span className={styles.property}>{info.name}</span>
+          <span>{info.value || 'unknown'}</span>
+        </li>);
     });
   }
 
@@ -36,8 +38,10 @@ class CharDetailsComponent extends Component {
 
     return (
       <div className={styles.container}>
-        <Link to="/" className={styles.backButton}>🡄 Back</Link>
+        <Link to="/list" className={styles.backButton}>🡄 Back</Link>
+
         <img src={activeChar.image} alt="none"></img>
+
         <ul className={styles.list}>
           {this.renderInfos()}
         </ul>

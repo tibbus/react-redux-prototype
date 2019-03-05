@@ -26,7 +26,7 @@ class CharListComponent extends Component {
           </Link>
         )
       })
-    )
+    );
   }
 
   render() {
